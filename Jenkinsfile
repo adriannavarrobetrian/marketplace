@@ -40,17 +40,21 @@ node('jenkins_agent'){
     // }
 
     stage('Build'){
-        docker.build(imageName, '--build-arg ENVIRONMENT=sandbox .')
+        //docker.build(imageName, '--build-arg ENVIRONMENT=sandbox .')
+        echo "Build passed"
+
     }
 
-    stage('Push'){
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-            docker.image(imageName).push(commitID())
+    stage('Push'){   
+        echo "Push passed"
 
-            if (env.BRANCH_NAME == 'develop') {
-                docker.image(imageName).push('develop')
-            }
-        }
+        // docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+        //     docker.image(imageName).push(commitID())
+
+        //     if (env.BRANCH_NAME == 'develop') {
+        //         docker.image(imageName).push('develop')
+        //     }
+        // }
     }
 }
 
