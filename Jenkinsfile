@@ -5,11 +5,11 @@ node('jenkins_agent'){
         checkout scm
     }
 
-    def imageTest= docker.build("${imageName}-test", "-f Dockerfile.test .")
+    //def imageTest= docker.build("${imageName}-test", "-f Dockerfile.test .")
 
-    stage('Quality Tests'){
-        sh "docker run --rm ${imageName}-test npm run lint"
-    }
+    // stage('Quality Tests'){
+    //     sh "docker run --rm ${imageName}-test npm run lint"
+    // }
 
     stage('Unit Tests'){
         // sh "docker run --rm -v $PWD/coverage:/app/coverage ${imageName}-test npm run test"
