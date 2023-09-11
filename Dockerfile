@@ -1,4 +1,4 @@
-FROM node:18.10 as builder
+FROM node:14.20 as builder
 ARG ENVIRONMENT
 ENV CHROME_BIN=chromium
 WORKDIR /app

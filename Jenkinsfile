@@ -48,13 +48,13 @@ node('jenkins_agent'){
     stage('Push'){   
         echo "Push passed"
 
-        // docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-        //     docker.image(imageName).push(commitID())
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+            docker.image(imageName).push(commitID())
 
-        //     if (env.BRANCH_NAME == 'develop') {
-        //         docker.image(imageName).push('develop')
-        //     }
-        // }
+            if (env.BRANCH_NAME == 'develop') {
+                docker.image(imageName).push('develop')
+            }
+        }
     }
 }
 
