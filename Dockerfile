@@ -2,7 +2,7 @@ FROM node:14.20 as builder
 ARG ENVIRONMENT
 ENV CHROME_BIN=chromium
 WORKDIR /app
-#RUN apt-get update && apt-get install -y chromium
+RUN apt-get update && apt-get install -y chromium
 COPY package-lock.json package.json .
 RUN npm i && npm i -g @angular/cli
 COPY . .
