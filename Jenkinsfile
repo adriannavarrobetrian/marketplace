@@ -40,7 +40,7 @@ node('jenkins_agent'){
     // }
 
     stage('Build'){
-        //docker.build(imageName, '--build-arg ENVIRONMENT=sandbox .')
+        docker.build(imageName, '--build-arg ENVIRONMENT=sandbox .')
         echo "Build passed"
 
     }
